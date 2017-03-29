@@ -18,11 +18,19 @@
 
 import threading, os, fcntl, math, sys
 import pickle as pickle
+from sortedcontainers import SortedSet as set
+
 if sys.version_info >= (3,):
     import pickle
 else:
     import cPickle as pickle
 from .log import logger
+
+def geom(range_min, range_max, num_steps):
+    """Return a geometric progression from range_min to range_max with num_steps"""
+    if num_steps == 0: return []
+    if num_steps == 1: return [float(range_min)]
+    return ([ float(range_min) ]
 
 def geom(range_min, range_max, num_steps):
     """Return a geometric progression from range_min to range_max with num_steps"""
