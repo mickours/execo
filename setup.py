@@ -28,19 +28,10 @@ try:
 except:
     pass
 
+
 def get_git_version():
-    # returns git tag / sha as string
-    # returns None if not available
-    try:
-        p = subprocess.Popen(["git", "describe", "--tags", "--dirty", "--always"],
-                             stdout = subprocess.PIPE, stderr = subprocess.PIPE,
-                             universal_newlines = True)
-    except EnvironmentError:
-        return None
-    version = p.communicate()[0].rstrip()
-    if p.returncode != 0:
-        return None
-    return version
+    return "2.6.2"
+
 
 VERSION_PY = """
 # Do not edit. This file is originally generated from git information.
